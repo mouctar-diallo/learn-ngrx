@@ -1,0 +1,25 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "codeArticle": "EL001",
+      "designation": "Lave-vaisselle",
+      "price": 500,
+      "quantity": 20
+    },
+    {
+      "id": 2,
+      "codeArticle": "EL002",
+      "designation": "Télévision",
+      "price": "500000",
+      "quantity": "10"
+    },
+    {
+      "id": 3,
+      "codeArticle": "EL003",
+      "designation": "Four electrique",
+      "price": "100000",
+      "quantity": "100"
+    }
+  ]
+}

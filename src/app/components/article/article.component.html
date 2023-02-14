@@ -1,0 +1,40 @@
+  <div class="row mt-5">
+
+    <ng-container *ngIf="loading$ | async">
+      <p>Loading...</p>
+    </ng-container>
+
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Code Article</th>
+          <th>Designation</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let article of articles$ | async">
+            <td>{{article.codeArticle}}</td>
+            <td>{{article.designation}}</td>
+            <td>{{article.price}}</td>
+            <td>{{article.quantity}}</td>
+            <td>
+              <button class="btn btn-primary col" (click)="modifyArticle(article)">edit</button>
+              <!-- <button class="btn btn-danger col" (click)="remove(article.id)">remove</button> -->
+            </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+<!-- EDIT ONE ARTICLE-->
+<div *ngIf="article$ | async as article">
+  <app-article-edit [article]="article"></app-article-edit>
+  <!-- {{ article | json }} -->
+</div>
+
+

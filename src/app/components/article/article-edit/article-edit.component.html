@@ -1,0 +1,27 @@
+<form class="col-4 mt-5" [formGroup]="form" *ngIf="!edited">
+        <div class="form-group">
+            <input class="form-control" formControlName="id" type="hidden">
+        </div>
+
+        <div class="form-group">
+            <label>Code article</label>
+            <input class="form-control" formControlName="codeArticle" placeholder="Enter code Article">
+          </div>
+      
+          <div class="form-group">
+              <label>Designation</label>
+              <input formControlName="designation" class="form-control" placeholder="Enter designation">
+          </div>
+      
+          <div class="form-group">
+              <label>Price</label>
+              <input class="form-control" formControlName="price" placeholder="Enter price">
+          </div>  
+      
+          <div class="form-group">
+              <label>Quantity</label>
+              <input formControlName="quantity" class="form-control" placeholder="Enter quantity">
+          </div>
+
+    <button type="button" class="btn btn-primary mt-3" (click)="update()">modifier</button>
+</form>
