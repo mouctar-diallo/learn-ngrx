@@ -27,7 +27,7 @@ export class ArticlesEffects {
     this.actions$.pipe(
       ofType(ArticleActions.loadOneArticle),
       switchMap(({id}) =>
-        this.articleService.getArticleByCode(id).pipe(
+        this.articleService.getArticleById(id).pipe(
           map((article: Article) => ArticleActions.loadOneArticleSuccess({ article })),
           catchError(err => of(ArticleActions.loadOneArticleFailure({ error: err })))
         )
@@ -46,6 +46,31 @@ export class ArticlesEffects {
         )
       )
     )
-  )
+  );
+
+  add$ = createEffect( () =>
+    this.actions$.pipe(
+      ofType(ArticleActions.addArticle),
+      switchMap(( {article} ) => 
+       this.articleService.addArticle(article).pipe(
+        map((article: Article) => ArticleActions.addArticleSuccess({ article })),
+        catchError(err => of(ArticleActions.addArticleFailure({ error: err })))
+       )
+      )
+    )
+  );
+
+
+  delete$ = createEffect( () =>
+    this.actions$.pipe(
+      ofType(ArticleActions.deleteArticle),
+      switchMap(( {id} ) =>
+        this.articleService.deleteArticle(id).pipe(
+          map(() => ArticleActions.deleteArticleSuccess()),
+          catchError(err => of(ArticleActions.deleteArticleFailure({ error: err })))
+        )
+      )
+    )
+  );
   
 }

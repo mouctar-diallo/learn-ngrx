@@ -49,9 +49,42 @@ export const updateArticleFailure = createAction(
   props<{ error: string}>()
 );
 
+// ADD Article
+export const addArticle = createAction(
+  '[article] add article',
+  props<{article: Article}>()
+);
+
+export const addArticleSuccess = createAction(
+  '[article] article added successfully',
+  props<{article: Article}>()
+);
+
+export const addArticleFailure = createAction(
+  '[article] add article failed',
+  props<{ error: string}>()
+);
+
+//DELETE ARTICLE
+export const deleteArticle = createAction(
+  '[article] deleting article',
+  props<{id: number}>()
+);
+
+export const deleteArticleSuccess = createAction(
+  '[article] article deleted successfully',
+);
+
+export const deleteArticleFailure = createAction(
+  '[article] delete article failed',
+  props<{ error: string}>()
+);
+
 
 export const ArticleActions = {
   loadArticles, loadArticlesSuccess, loadArticlesFailure,
   loadOneArticle, loadOneArticleSuccess, loadOneArticleFailure,
-  updateArticle, updateArticleSuccess, updateArticleFailure
+  updateArticle, updateArticleSuccess, updateArticleFailure,
+  addArticle, addArticleSuccess, addArticleFailure,
+  deleteArticle, deleteArticleSuccess, deleteArticleFailure
 }

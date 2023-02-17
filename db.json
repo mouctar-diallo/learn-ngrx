@@ -12,7 +12,7 @@
       "codeArticle": "EL002",
       "designation": "Télévision",
       "price": "500000",
-      "quantity": "10"
+      "quantity": "11"
     },
     {
       "id": 3,
@@ -20,6 +20,13 @@
       "designation": "Four electrique",
       "price": "100000",
       "quantity": "100"
+    },
+    {
+      "codeArticle": "EL004",
+      "designation": "Congelateur",
+      "price": "20000",
+      "quantity": "30",
+      "id": 4
     }
   ]
 }

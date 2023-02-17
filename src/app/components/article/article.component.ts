@@ -17,6 +17,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(private auth: AuthService, private store: Store) {}
 
+  add: boolean = false;
+  edit: boolean = false;
   selectedArticle: Article | any;
   articles$: Observable<any> = this.store.pipe(select(selectArticles));
   loading$: Observable<boolean> = this.store.pipe(select(loadingSelector));
@@ -31,11 +33,20 @@ export class ArticleComponent implements OnInit {
     this.store.dispatch(ArticleActions.loadArticles())
   }
 
-  modifyArticle(article: any) {
+  onEditArticle(article: any) {
+    this.edit = true;
+    this.add = false;
     this.store.dispatch(ArticleActions.loadOneArticle({id: article.id}));
   }
 
   remove(article: Article) {
-    console.log(article)
+    const article_id = Number(article.id);
+    this.store.dispatch(ArticleActions.deleteArticle({id: article_id}));
+    this.getArticles();
+  }
+
+  onAddArticle() {
+    this.add = true;
+    this.edit = false;
   }
 }

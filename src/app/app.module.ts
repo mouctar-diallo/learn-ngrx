@@ -21,13 +21,15 @@ import {ProgressSpinnerModule} from "primeng/progressspinner";
 import { HeaderComponent } from './components/header/header.component';
 import { ArticleEditComponent } from './components/article/article-edit/article-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArticleAddComponent } from './components/article/article-add/article-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
     HeaderComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    ArticleAddComponent
   ],
   imports: [
     BrowserModule,

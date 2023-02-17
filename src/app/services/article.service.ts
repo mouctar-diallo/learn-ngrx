@@ -17,11 +17,19 @@ export class ArticleService {
     return this.http.get<Article[]>(this.baseUrl + `/articles`);
   }
 
-  getArticleByCode(id: number): Observable<Article> {
+  getArticleById(id: number): Observable<Article> {
     return this.http.get<Article>(this.baseUrl + `/articles/${id}`);
+  }
+
+  deleteArticle(id: number) {
+    return this.http.delete(this.baseUrl + `/articles/${id}`);
   }
 
   updateArticle(article: Article, id: number): Observable<Article> {
     return this.http.put<Article>(this.baseUrl + `/articles/${id}`, article);
+  }
+
+  addArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.baseUrl + '/articles', article);
   }
 }

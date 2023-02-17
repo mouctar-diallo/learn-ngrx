@@ -67,5 +67,49 @@ export const articleReducer = createReducer(
     ...state,
     error: error,
     loading: false
-   }))
+   })),
+
+
+   // ADD ARTICLE
+   on(ArticleActions.addArticle, (state, {article}) => {
+
+    const articleExist: any = state.articles.find((item: any) => item.codeArticle === article.codeArticle);
+    return (articleExist) ?  {... state, loading: false} : {... state, article: article, loading: false}
+    // if(articleExist) {
+    //   return {... state, loading: false};
+    // }
+    // else {
+    //   return {... state, article: article, loading: false};
+    // }
+
+   }),
+
+   on(ArticleActions.addArticleSuccess, (state, {article}) => ({
+    ...state,
+    article: article,
+    loading: false
+   })),
+
+   on(ArticleActions.addArticleFailure, (state, {error}) => ({
+    ...state,
+    error: error,
+    loading: false
+   })),
+
+   // DELETE ARTICLE
+   on(ArticleActions.deleteArticle, (state, {id}) => ({
+    ...state,
+    loading: true
+   })),
+
+   on(ArticleActions.deleteArticleSuccess, (state) => ({
+    ...state,
+    loading: false
+   })),
+
+   on(ArticleActions.deleteArticleFailure, (state, {error}) => ({
+    ...state,
+    error: error,
+    loading: false
+   })),
 )
