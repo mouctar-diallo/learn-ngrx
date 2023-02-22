@@ -37,9 +37,13 @@
   </div>
 
 <!-- EDIT ONE ARTICLE-->
-<div *ngIf="article$ | async as article">
-  <app-article-edit *ngIf="edit" [article]="article"></app-article-edit>
-</div>
+  <div *ngIf="edit">
+    <div *ngIf="article$ | async as article">
+      <app-article-edit [article]="article"></app-article-edit>
+    </div>
+  </div>
+
+  {{ add }} {{ edit }}
 
 <!-- ADD ARTICLE -->
 <div *ngIf="add">

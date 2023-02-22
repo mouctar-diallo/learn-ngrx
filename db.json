@@ -22,11 +22,25 @@
       "quantity": "100"
     },
     {
+      "id": 4,
       "codeArticle": "EL004",
       "designation": "Congelateur",
-      "price": "20000",
-      "quantity": "30",
-      "id": 4
+      "price": "5000",
+      "quantity": "32"
+    },
+    {
+      "id": 5,
+      "codeArticle": "EL005",
+      "designation": "gaz",
+      "price": "10000",
+      "quantity": "200"
+    },
+    {
+      "id": 6,
+      "codeArticle": "gg",
+      "designation": "gggg",
+      "price": "4",
+      "quantity": "40"
     }
   ]
 }

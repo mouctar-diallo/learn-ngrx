@@ -15,9 +15,9 @@ export class ArticleEditComponent implements OnInit, OnChanges {
   form: FormGroup | any;
   @Input() article: Article | any;
   edited: boolean = false;
-  articles$: Observable<any> = new Observable();
+  articles$: Observable<Article[]> = new Observable<Article[]>();
 
-  constructor(private store: Store<Article>) { 
+  constructor(private store: Store<Article>) {
     this.store = store;
   }
 
@@ -53,7 +53,6 @@ export class ArticleEditComponent implements OnInit, OnChanges {
   update() {
     this.article = this.form.value;
     this.store.dispatch(ArticleActions.updateArticle({id: this.article.id, article: this.article}));
-    //mettre à jour la liste des articles et masquons le formulaire after modif
     this.reloadArticles();
     this.edited = true;
   }

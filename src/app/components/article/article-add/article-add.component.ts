@@ -30,7 +30,7 @@ export class ArticleAddComponent implements OnInit {
     });
   }
 
-  get formControl() { return this.form.controls; }
+  get valid() { return this.form.controls; }
 
   add() {
     if (this.form.invalid) {
