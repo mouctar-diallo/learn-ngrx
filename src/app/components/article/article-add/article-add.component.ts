@@ -12,7 +12,7 @@ import { selectArticles } from 'src/app/ngrx/selectors/articles.selector';
   styleUrls: ['./article-add.component.css']
 })
 export class ArticleAddComponent implements OnInit {
-  added: boolean = false;
+  @Input() added: boolean = false;
   form: FormGroup | any;
   @Input() addArticle: Article | any;
   articles$: Observable<Article[]> = new Observable<Article[]>();
@@ -41,7 +41,8 @@ export class ArticleAddComponent implements OnInit {
     this.addArticle = this.form.value;
     this.store.dispatch(ArticleActions.addArticle({ article: this.addArticle}));
     this.reloadArticles();
-    this.added = true
+    this.form.reset();
+    this.added = false;
   }
 
   reloadArticles() {

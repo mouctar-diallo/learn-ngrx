@@ -14,7 +14,7 @@ import { selectArticles } from 'src/app/ngrx/selectors/articles.selector';
 export class ArticleEditComponent implements OnInit, OnChanges {
   form: FormGroup | any;
   @Input() article: Article | any;
-  edited: boolean = false;
+  @Input() edited: boolean = false;
   articles$: Observable<Article[]> = new Observable<Article[]>();
 
   constructor(private store: Store<Article>) {
@@ -54,7 +54,7 @@ export class ArticleEditComponent implements OnInit, OnChanges {
     this.article = this.form.value;
     this.store.dispatch(ArticleActions.updateArticle({id: this.article.id, article: this.article}));
     this.reloadArticles();
-    this.edited = true;
+    this.edited = false;
   }
 
   reloadArticles() {

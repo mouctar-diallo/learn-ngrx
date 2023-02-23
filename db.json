@@ -33,14 +33,14 @@
       "codeArticle": "EL005",
       "designation": "gaz",
       "price": "10000",
-      "quantity": "200"
+      "quantity": "2000"
     },
     {
       "id": 6,
-      "codeArticle": "gg",
-      "designation": "gggg",
-      "price": "4",
-      "quantity": "40"
+      "codeArticle": "EL006 ",
+      "designation": "pc portable",
+      "price": "120000",
+      "quantity": "3000"
     }
   ]
 }

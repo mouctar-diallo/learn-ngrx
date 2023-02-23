@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {ArticleService} from "../../services/article.service";
-import {AuthService} from "../../services/auth.service";
 import {select, Store} from "@ngrx/store";
 import {ArticleActions} from "../../ngrx/actions/articles.action";
 import {map, Observable} from "rxjs";
@@ -15,11 +14,10 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor(private auth: AuthService, private store: Store) {}
+  constructor(private store: Store) {}
 
-  add: boolean = false;
-  edit: boolean = false;
-  selectedArticle: Article | any;
+  added: boolean = false;
+  edited: boolean = false;
   articles$: Observable<any> = this.store.pipe(select(selectArticles));
   loading$: Observable<boolean> = this.store.pipe(select(loadingSelector));
   // article$: Observable<any> = this.store.select((state: any) => state.articles.article);
@@ -34,8 +32,7 @@ export class ArticleComponent implements OnInit {
   }
 
   onEditArticle(article: any) {
-    this.edit = true;
-    this.add = false;
+    this.edited = true;
     this.store.dispatch(ArticleActions.loadOneArticle({id: article.id}));
   }
 
@@ -46,7 +43,6 @@ export class ArticleComponent implements OnInit {
   }
 
   onAddArticle() {
-    this.add = true;
-    this.edit = false;
+    this.added = true;
   }
 }

@@ -5,7 +5,7 @@
     </ng-container>
 
     <div class="text-end" (click)="onAddArticle()">
-      <button class="mb-2 btn btn-success"> + ajouter</button>
+      <button class="mb-1 btn btn-success"> + ajouter</button>
     </div>
 
     <table class="table table-striped table-bordered table-hover">
@@ -32,22 +32,22 @@
             </td>
         </tr>
       </tbody>
-
     </table>
   </div>
 
-<!-- EDIT ONE ARTICLE-->
-  <div *ngIf="edit">
-    <div *ngIf="article$ | async as article">
-      <app-article-edit [article]="article"></app-article-edit>
+  <div class="row mb-5">
+
+     <!-- ADD ARTICLE -->
+     <div class="col">
+      <app-article-add [added]="added"></app-article-add>
+    </div>
+
+    <!-- EDIT ONE ARTICLE-->
+    <div class="col">
+      <div *ngIf="article$ | async as article">
+        <app-article-edit [edited]="edited" [article]="article"></app-article-edit>
+      </div>
     </div>
   </div>
-
-  {{ add }} {{ edit }}
-
-<!-- ADD ARTICLE -->
-<div *ngIf="add">
-  <app-article-add></app-article-add>
-</div>
 
 
