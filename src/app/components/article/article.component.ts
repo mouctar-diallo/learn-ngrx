@@ -16,8 +16,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  added: boolean = false;
-  edited: boolean = false;
+  @Output() added: boolean = false;
+  @Output() edited: boolean = false;
   articles$: Observable<any> = this.store.pipe(select(selectArticles));
   loading$: Observable<boolean> = this.store.pipe(select(loadingSelector));
   // article$: Observable<any> = this.store.select((state: any) => state.articles.article);

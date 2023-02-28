@@ -9,15 +9,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
 import {InterceptorProvider} from "./components/_helpers/interceptor";
-import {TableModule} from "primeng/table";
-import {ButtonModule} from "primeng/button";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {reducers} from "./ngrx/reducers/reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {Effects} from "./ngrx/effects/effects";
-import {RippleModule} from "primeng/ripple";
-import {ProgressSpinnerModule} from "primeng/progressspinner";
 import { HeaderComponent } from './components/header/header.component';
 import { ArticleEditComponent } from './components/article/article-edit/article-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,8 +39,7 @@ import { ArticleAddComponent } from './components/article/article-add/article-ad
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    ProgressSpinnerModule
+    FormsModule
   ],
   providers: [InterceptorProvider],
   bootstrap: [AppComponent]
