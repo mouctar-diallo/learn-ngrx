@@ -14,7 +14,7 @@ export class ArticlesEffects {
   getArticles$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.loadArticles),
-      mergeMap(() =>
+      switchMap(() =>
         this.articleService.getArticles().pipe(
           map((articles: Article[]) => ArticleActions.loadArticlesSuccess({articles})),
           catchError(error => of(ArticleActions.loadArticlesFailure({error: error})))

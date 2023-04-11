@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Test",
+      "request": "launch",
+      "mainClass": "Test",
+      "projectName": "ngrx-first-tuto-doc_47a19bc4"
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",
