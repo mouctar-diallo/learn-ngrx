@@ -14,7 +14,7 @@ export class InterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
-    //testons si le token n'est pas expirée
+    //testons si le token valide
     const jwtHelper = new JwtHelperService();
     if ((token && !jwtHelper.isTokenExpired(token))) {
       req = req.clone({ headers: req.headers.set('Accept', 'application/json')})
